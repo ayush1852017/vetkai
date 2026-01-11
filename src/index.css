@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base - Off-white ivory */
+    --background: 60 100% 97%;
+    /* Deep Maroon for text */
+    --foreground: 345 100% 25%;
+
+    /* Sandalwood Cream */
+    --card: 39 77% 83%;
+    --card-foreground: 345 100% 25%;
+
+    --popover: 60 100% 97%;
+    --popover-foreground: 345 100% 25%;
+
+    /* Temple Terracotta Red */
+    --primary: 14 61% 48%;
+    --primary-foreground: 60 100% 97%;
+
+    /* Peacock Blue-Green */
+    --secondary: 183 100% 22%;
+    --secondary-foreground: 60 100% 97%;
+
+    /* Sandalwood Cream */
+    --muted: 39 77% 90%;
+    --muted-foreground: 14 61% 48%;
+
+    /* Turmeric Gold */
+    --accent: 43 98% 53%;
+    --accent-foreground: 345 100% 25%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 60 100% 97%;
+
+    /* Sacred Saffron */
+    --border: 30 100% 60%;
+    --input: 39 77% 90%;
+    --ring: 14 61% 48%;
+
+    --radius: 0.5rem;
+
+    /* Custom Vetkai Tokens - Tamil Palette */
+    --vetkai-terracotta: 14 61% 48%;
+    --vetkai-gold: 43 98% 53%;
+    --vetkai-peacock: 183 100% 22%;
+    --vetkai-saffron: 30 100% 60%;
+    --vetkai-sandalwood: 39 77% 83%;
+    --vetkai-maroon: 345 100% 25%;
+    --vetkai-ivory: 60 100% 97%;
+
+    /* Section Depths */
+    --section-hero: 60 100% 97%;
+    --section-deep: 345 100% 25%;
+    /* Maroon */
+    --section-mid: 39 77% 83%;
+    /* Sandalwood */
+
+    /* Geometric Precision */
+    --cursor-size: 24px;
+    --grid-gap: 40px;
+    --node-radius: 8px;
+
+    --sidebar-background: 60 100% 97%;
+    --sidebar-foreground: 345 100% 25%;
+    --sidebar-primary: 14 61% 48%;
+    --sidebar-primary-foreground: 60 100% 97%;
+    --sidebar-accent: 39 77% 83%;
+    --sidebar-accent-foreground: 345 100% 25%;
+    --sidebar-border: 30 100% 60%;
+    --sidebar-ring: 14 61% 48%;
+  }
+
+  .dark {
+    /* Dark mode adjustments if needed, though traditional aesthetic might favor light/warm */
+    --background: 345 100% 15%;
+    /* Deep Maroon */
+    --foreground: 43 98% 53%;
+    /* Gold */
+
+    --card: 345 100% 20%;
+    --card-foreground: 43 98% 53%;
+
+    --popover: 345 100% 15%;
+    --popover-foreground: 43 98% 53%;
+
+    --primary: 43 98% 53%;
+    /* Gold */
+    --primary-foreground: 345 100% 15%;
+
+    --secondary: 183 100% 22%;
+    --secondary-foreground: 60 100% 97%;
+
+    --muted: 345 100% 20%;
+    --muted-foreground: 39 77% 83%;
+
+    --accent: 14 61% 48%;
+    --accent-foreground: 60 100% 97%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 60 100% 97%;
+
+    --border: 14 61% 48%;
+    --input: 345 100% 20%;
+    --ring: 43 98% 53%;
+
+    --sidebar-background: 345 100% 15%;
+    --sidebar-foreground: 43 98% 53%;
+    --sidebar-primary: 43 98% 53%;
+    --sidebar-primary-foreground: 345 100% 15%;
+    --sidebar-accent: 345 100% 20%;
+    --sidebar-accent-foreground: 43 98% 53%;
+    --sidebar-border: 14 61% 48%;
+    --sidebar-ring: 43 98% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    /* Ultra-smooth transitions for imperceptible color changes during scroll */
+    transition: color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+      background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+      fill 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+      stroke 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Noto Sans Tamil', 'Space Grotesk', system-ui, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Noto Sans Tamil', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+
+  /* Kolam Border */
+  .kolam-border {
+    position: relative;
+    border: 3px solid transparent;
+    border-image: linear-gradient(to right, hsl(var(--vetkai-terracotta)), hsl(var(--vetkai-gold))) 1;
+  }
+
+  .tamil-card {
+    background-color: hsl(var(--vetkai-ivory));
+    border: 1px solid hsl(var(--vetkai-saffron));
+    box-shadow: 4px 4px 0 hsl(var(--vetkai-terracotta));
+    transition: all 0.3s ease;
+  }
+
+  .tamil-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 hsl(var(--vetkai-peacock));
+  }
+
+  /* Mandala Pattern background utility */
+  .bg-mandala {
+    background-image:
+      radial-gradient(circle at center, hsla(var(--vetkai-gold), 0.1) 0%, transparent 70%),
+      repeating-linear-gradient(45deg, hsla(var(--vetkai-terracotta), 0.05) 0px, hsla(var(--vetkai-terracotta), 0.05) 2px, transparent 2px, transparent 10px),
+      repeating-linear-gradient(-45deg, hsla(var(--vetkai-terracotta), 0.05) 0px, hsla(var(--vetkai-terracotta), 0.05) 2px, transparent 2px, transparent 10px);
+  }
+
+  .text-gradient-tamil {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary;
+  }
+
+  .section-divider-valli {
+    height: 24px;
+    background-image: linear-gradient(90deg, transparent 50%, hsl(var(--vetkai-terracotta)) 50%);
+    background-size: 20px 20px;
+    mask-image: radial-gradient(circle, black 50%, transparent 50%);
+    mask-size: 20px 20px;
+  }
+
+  /* Loading Kolam Animation */
+  @keyframes draw-kolam {
+    0% {
+      stroke-dashoffset: 1000;
+    }
+
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  .animate-draw-kolam {
+    stroke-dasharray: 1000;
+    animation: draw-kolam 3s ease-in-out forwards;
+  }
+
+  .vetkai-container {
+    @apply mx-auto w-full max-w-7xl px-6 md:px-8;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
