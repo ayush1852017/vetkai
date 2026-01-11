@@ -45,7 +45,7 @@ const CARDS: Card[] = [
   },
 ];
 
-const MissionSection = () => {
+export const MissionSection = () => {
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
 
   return (
