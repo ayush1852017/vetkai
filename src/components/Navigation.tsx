@@ -21,8 +21,8 @@ export const Navigation = () => {
           href="#" 
           className="flex items-center gap-2 group"
         >
-          <img src="/VL D.png" alt="Vetkai Logo" className="h-12 w-auto dark:hidden" />
-          <img src="/VL W.png" alt="Vetkai Logo" className="h-12 w-auto hidden dark:block" />
+          <img src="/logo-transparent.png" alt="Vetkai Logo" className="h-12 w-auto dark:hidden" />
+          <img src="/logo.png" alt="Vetkai Logo" className="h-12 w-auto hidden dark:block" />
         </a>
 
         {/* Navigation Links */}

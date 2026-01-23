@@ -40,8 +40,8 @@ export const HeroSection = () => {
               transition={{ delay: 0.5, duration: 0.8 }}
               className="flex justify-center items-center px-4"
           >
-            <img src="/VL D.png" alt="Vetkai" className="w-full max-w-3xl h-auto dark:hidden" />
-            <img src="/VL W.png" alt="Vetkai" className="w-full max-w-3xl h-auto hidden dark:block" />
+            <img src="/logo-transparent.png" alt="Vetkai" className="w-full max-w-3xl h-auto dark:hidden" />
+            <img src="/logo.png" alt="Vetkai" className="w-full max-w-3xl h-auto hidden dark:block" />
           </motion.div>
         </div>
 

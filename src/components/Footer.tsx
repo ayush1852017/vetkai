@@ -16,8 +16,8 @@ export const Footer = () => {
               viewport={{ once: true }}
               className="mb-6"
             >
-              <img src="/VL D.png" alt="Vetkai" className="h-12 w-auto dark:hidden" />
-              <img src="/VL W.png" alt="Vetkai" className="h-12 w-auto hidden dark:block" />
+              <img src="/logo-transparent.png" alt="Vetkai" className="h-12 w-auto dark:hidden" />
+              <img src="/logo.png" alt="Vetkai" className="h-12 w-auto hidden dark:block" />
             </motion.div>
             
             <p className="text-foreground/70 text-base leading-relaxed max-w-sm mb-8 font-serif">
