@@ -75,7 +75,7 @@ export const ScrambleText = ({
 
   return (
     <Component
-      ref={elementRef as any}
+      ref={elementRef}
       className={`${className} font-mono`}
     >
       {displayText.map((char, index) => (
