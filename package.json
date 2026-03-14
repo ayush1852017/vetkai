@@ -85,6 +85,8 @@
     "wrangler": "^4.73.0"
   },
   "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "^4.59.0"
+    "@rollup/rollup-linux-x64-gnu": "^4.59.0",
+    "@swc/core-linux-x64-gnu": "^1.15.18",
+    "@swc/core-linux-x64-musl": "^1.15.18"
   }
 }
