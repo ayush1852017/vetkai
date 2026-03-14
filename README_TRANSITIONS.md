@@ -8,7 +8,7 @@ This document outlines the technical mechanism behind the seamless, scroll-drive
 Unlike traditional scroll effects that trigger abrupt class changes (e.g., when a section hits the viewport top), our system continuously interpolates colors. This ensures:
 - **No Hard Edges**: There is never a single frame where the theme "switches".
 - **Shortest Path Hue**: When transitioning from Blue to Red, we calculate the shortest path around the color wheel to avoid jarring rainbow effects.
-- **Natural Easing**: We use `easeInOutCubic` curves so changes accelerate and decelerate naturally, imitating physical motion.
+- **Natural Easing**: We use `easeInOutCubic` curves so changes accelerate and decelerate naturally,  imitating physical motion.
 
 ## Technical Implementation
 
