@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 export const Footer = () => {
   return (
@@ -19,38 +20,52 @@ export const Footer = () => {
               <img src="/logo-transparent.png" alt="Vetkai" className="h-12 w-auto dark:hidden" />
               <img src="/logo.png" alt="Vetkai" className="h-12 w-auto hidden dark:block" />
             </motion.div>
-            
+
             <p className="text-foreground/70 text-base leading-relaxed max-w-sm mb-8 font-serif">
-              Building communities and products for change in healthcare & education in India, 
-              by doing the right things and challenging the status quo.
+              Meaningful systems for education and healthcare —
+              built with intent, guided by science, and designed for the people we serve.
             </p>
-            
+
             <div className="flex gap-4 text-xs font-medium tracking-wide text-vetkai-peacock uppercase">
-              <span>Trust</span>
+              <span>Clarity</span>
               <span className="text-vetkai-gold">•</span>
-              <span>Excellence</span>
+              <span>Science</span>
               <span className="text-vetkai-gold">•</span>
-              <span>Empowerment</span>
+              <span>Intent</span>
             </div>
           </div>
 
-          {/* Links 1 */}
+          {/* Links — Work */}
           <div>
-            <h4 className="text-sm font-bold uppercase tracking-widest text-vetkai-terracotta mb-6">Initiatives</h4>
+            <h4 className="text-sm font-bold uppercase tracking-widest text-vetkai-terracotta mb-6">Work</h4>
             <ul className="space-y-3 text-sm text-foreground/70">
-              <li><a href="#" className="hover:text-vetkai-gold transition-colors flex items-center gap-2 group"><span className="w-1 h-1 bg-vetkai-gold rounded-full opacity-0 group-hover:opacity-100 transition-opacity"/> Education</a></li>
-              <li><a href="#" className="hover:text-vetkai-gold transition-colors flex items-center gap-2 group"><span className="w-1 h-1 bg-vetkai-gold rounded-full opacity-0 group-hover:opacity-100 transition-opacity"/> Healthcare</a></li>
-              <li><a href="#" className="hover:text-vetkai-gold transition-colors flex items-center gap-2 group"><span className="w-1 h-1 bg-vetkai-gold rounded-full opacity-0 group-hover:opacity-100 transition-opacity"/> Community</a></li>
+              <li>
+                <Link to="/#products" className="hover:text-vetkai-gold flex items-center gap-2 group">
+                  <span className="w-1 h-1 bg-vetkai-gold rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                  31Gauge
+                </Link>
+              </li>
+              <li>
+                <Link to="/research" className="hover:text-vetkai-gold flex items-center gap-2 group">
+                  <span className="w-1 h-1 bg-vetkai-gold rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                  Research
+                </Link>
+              </li>
+              <li>
+                <Link to="/careers" className="hover:text-vetkai-gold flex items-center gap-2 group">
+                  <span className="w-1 h-1 bg-vetkai-gold rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                  Careers
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Links 2 */}
+          {/* Links — Company */}
           <div>
-            <h4 className="text-sm font-bold uppercase tracking-widest text-vetkai-terracotta mb-6">Connect</h4>
+            <h4 className="text-sm font-bold uppercase tracking-widest text-vetkai-terracotta mb-6">Company</h4>
             <ul className="space-y-3 text-sm text-foreground/70">
-              <li><a href="#" className="hover:text-vetkai-gold transition-colors">About Us</a></li>
-              <li><a href="#" className="hover:text-vetkai-gold transition-colors">Careers</a></li>
-              <li><a href="#" className="hover:text-vetkai-gold transition-colors">Contact</a></li>
+              <li><Link to="/#meaning" className="hover:text-vetkai-gold">About</Link></li>
+              <li><Link to="/#connect" className="hover:text-vetkai-gold">Connect</Link></li>
             </ul>
           </div>
         </div>
@@ -58,15 +73,15 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-vetkai-gold/20 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-foreground/60">
           <p className="tracking-wide">
-            © {new Date().getFullYear()} VETKAI. Transforming Healthcare & Education.
+            © {new Date().getFullYear()} Vetkai Private Limited.
           </p>
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 bg-vetkai-peacock rounded-full" />
-            <span className="tracking-[0.2em] uppercase">Made with Tradition & Tech</span>
+            <span className="tracking-[0.2em] uppercase">Vetkai — built with intent.</span>
           </div>
         </div>
       </div>
-      
+
       {/* Background Texture */}
       <div className="absolute inset-0 bg-[radial-gradient(#FDB813_1px,transparent_1px)] [background-size:20px_20px] opacity-[0.03] pointer-events-none" />
     </footer>

@@ -10,12 +10,32 @@ interface GeometricCursorProps {
 export const GeometricCursor = ({ domain = 'default' }: GeometricCursorProps) => {
   const mousePosition = useMousePosition();
   const [currentDomain, setCurrentDomain] = useState<CursorDomain>('default');
+  // Only show after the mouse has actually moved — prevents a flash at (0,0) on load
+  const [hasMoved, setHasMoved] = useState(false);
   const cursorRef = useRef<HTMLDivElement>(null);
+
+  // Hide native cursor on pointer devices; restore on unmount
+  useEffect(() => {
+    const hasPointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (!hasPointer) return;
+    document.documentElement.style.cursor = 'none';
+    return () => {
+      document.documentElement.style.cursor = '';
+    };
+  }, []);
+
+  // Track first mouse movement so we don't render at (0,0) on load
+  useEffect(() => {
+    if (hasMoved) return;
+    const onMove = () => setHasMoved(true);
+    window.addEventListener('mousemove', onMove, { once: true });
+    return () => window.removeEventListener('mousemove', onMove);
+  }, [hasMoved]);
 
   useEffect(() => {
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      
+
       if (target.closest('button, a, [role="button"]')) {
         setCurrentDomain('interactive');
       } else if (target.closest('[data-domain="research"]')) {
@@ -36,7 +56,6 @@ export const GeometricCursor = ({ domain = 'default' }: GeometricCursorProps) =>
       case 'interactive':
         return (
           <svg viewBox="0 0 48 48" className="w-full h-full">
-            {/* Hexagon for interactive */}
             <polygon
               points="24,4 44,16 44,32 24,44 4,32 4,16"
               fill="none"
@@ -50,7 +69,6 @@ export const GeometricCursor = ({ domain = 'default' }: GeometricCursorProps) =>
       case 'research':
         return (
           <svg viewBox="0 0 48 48" className="w-full h-full">
-            {/* Crosshair for research */}
             <circle cx="24" cy="24" r="16" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="4 2" />
             <line x1="24" y1="4" x2="24" y2="16" stroke="currentColor" strokeWidth="1.5" />
             <line x1="24" y1="32" x2="24" y2="44" stroke="currentColor" strokeWidth="1.5" />
@@ -62,7 +80,6 @@ export const GeometricCursor = ({ domain = 'default' }: GeometricCursorProps) =>
       case 'navigation':
         return (
           <svg viewBox="0 0 48 48" className="w-full h-full">
-            {/* Triangle for navigation */}
             <polygon
               points="24,8 40,40 8,40"
               fill="none"
@@ -75,7 +92,6 @@ export const GeometricCursor = ({ domain = 'default' }: GeometricCursorProps) =>
       default:
         return (
           <svg viewBox="0 0 48 48" className="w-full h-full">
-            {/* Diamond for default */}
             <polygon
               points="24,4 44,24 24,44 4,24"
               fill="none"
@@ -97,16 +113,27 @@ export const GeometricCursor = ({ domain = 'default' }: GeometricCursorProps) =>
     }
   };
 
+  const size = getSize();
+
   return (
     <div
       ref={cursorRef}
-      className="cursor-reticle text-foreground"
+      // Use a static brand color — text-foreground is driven by ScrollColorLerp
+      // and would flicker as CSS vars update at 60fps
+      className="text-vetkai-terracotta"
       style={{
+        position: 'fixed',
+        pointerEvents: 'none',
+        zIndex: 9999,
         left: mousePosition.x,
         top: mousePosition.y,
-        width: getSize(),
-        height: getSize(),
-        transition: 'width 0.2s cubic-bezier(0.23, 1, 0.32, 1), height 0.2s cubic-bezier(0.23, 1, 0.32, 1)',
+        width: size,
+        height: size,
+        // Center the shape on the actual mouse hotspot
+        transform: 'translate(-50%, -50%)',
+        opacity: hasMoved ? 1 : 0,
+        // Transition only size — position must follow the mouse instantly
+        transition: 'width 0.2s cubic-bezier(0.23, 1, 0.32, 1), height 0.2s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.15s ease',
       }}
     >
       {getCursorShape()}

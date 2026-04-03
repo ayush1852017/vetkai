@@ -52,7 +52,7 @@ export const HeroSection = () => {
           transition={{ delay: 0.8, duration: 0.6 }}
         >
           <h2 className="text-xl md:text-2xl text-vetkai-peacock font-medium tracking-wide mb-8 mt-6">
-            BUILDING FOR CHANGE
+            Built with intent. Guided by Vetkai.
           </h2>
         </motion.div>
 
@@ -61,10 +61,21 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.8 }}
-          className="text-lg md:text-xl text-foreground/80 max-w-2xl leading-relaxed mb-12 font-serif"
+          className="text-lg md:text-xl text-foreground/80 max-w-2xl leading-relaxed mb-4 font-serif"
         >
-          Building communities and products for change in healthcare & education in India—
-          by doing the right things and challenging the status quo.
+          We create meaningful systems for education and healthcare —
+          combining clarity, science, and thoughtful use of technology
+          to enable better outcomes at scale.
+        </motion.p>
+
+        {/* Quiet Line */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 0.8 }}
+          className="text-sm text-foreground/50 tracking-[0.25em] uppercase mb-12"
+        >
+          Rooted in purpose. Designed for progress.
         </motion.p>
 
         {/* Focus Areas - Hexagonal/Octagonal Styling */}

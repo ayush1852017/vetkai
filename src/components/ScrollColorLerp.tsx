@@ -90,128 +90,186 @@ const getCardColor = (bgH: number, bgS: number, bgL: number): { h: number; s: nu
 
 // DJ-Style Crossfade: Each section has distinct color, transitions blend imperceptibly
 // Like mixing songs - you feel the change but can't pinpoint when it happened
-// 
-// Section Flow:
-// Hero (Ivory) → Mission (Terracotta) → Values (Gold) → Engine (Peacock) → Contact (Maroon)
+//
+// Section Flow (11 sections):
+// Hero (Ivory) → Meaning (Sandalwood) → Belief (Terracotta) → HowWeBuild (Gold)
+// → AI (Peacock) → Products (Sandalwood) → [ScienceOf: hard override]
+// → Philosophy (Ivory) → BuildWithUs (Gold) → Investor (Terracotta) → Vision (Maroon)
 const COLOR_STOPS = [
   // ═══════════════════════════════════════════════════════════════
-  // SECTION 1: HERO - Warm Ivory (Primary Color)
+  // SECTION 1: HERO — Warm Ivory
   // ═══════════════════════════════════════════════════════════════
   {
     position: 0,
-    background: { h: 60, s: 100, l: 97 },   // Vetkai Ivory
-    primary: { h: 14, s: 61, l: 48 },       // Terracotta accent
-    accent: { h: 43, s: 98, l: 53 },        // Gold
+    background: { h: 60, s: 100, l: 97 },
+    primary: { h: 14, s: 61, l: 48 },
+    accent: { h: 43, s: 98, l: 53 },
   },
-  
-  // Bridge 1A: Start introducing terracotta warmth (10%)
+  {
+    position: 0.06,
+    background: { h: 55, s: 90, l: 96 },
+    primary: { h: 14, s: 62, l: 47 },
+    accent: { h: 43, s: 97, l: 53 },
+  },
+
+  // ═══════════════════════════════════════════════════════════════
+  // SECTION 2: VETKAI MEANING — Sandalwood
+  // ═══════════════════════════════════════════════════════════════
   {
     position: 0.10,
-    background: { h: 50, s: 85, l: 96 },    // Ivory → warmer
-    primary: { h: 14, s: 63, l: 47 },
-    accent: { h: 42, s: 96, l: 52 },
+    background: { h: 48, s: 70, l: 94 },
+    primary: { h: 14, s: 61, l: 48 },
+    accent: { h: 43, s: 98, l: 53 },
   },
-  
-  // Bridge 1B: Deeper terracotta blend (15%)
   {
-    position: 0.15,
-    background: { h: 40, s: 70, l: 94 },    // More terracotta
-    primary: { h: 14, s: 65, l: 46 },
-    accent: { h: 40, s: 94, l: 51 },
+    position: 0.16,
+    background: { h: 39, s: 77, l: 91 },   // Full sandalwood
+    primary: { h: 14, s: 61, l: 48 },
+    accent: { h: 43, s: 95, l: 52 },
   },
-  
+
   // ═══════════════════════════════════════════════════════════════
-  // SECTION 2: MISSION - Terracotta Red
+  // SECTION 3: BELIEF SYSTEM — Soft Terracotta
   // ═══════════════════════════════════════════════════════════════
   {
     position: 0.20,
-    background: { h: 14, s: 30, l: 92 },    // Soft terracotta bg
-    primary: { h: 14, s: 61, l: 48 },       // Full terracotta
-    accent: { h: 43, s: 98, l: 53 },        // Gold accent
-  },
-  
-  // Bridge 2A: Start gold introduction (30%)
-  {
-    position: 0.30,
-    background: { h: 20, s: 40, l: 93 },    // Terracotta → gold
-    primary: { h: 30, s: 70, l: 50 },       // Warming toward gold
+    background: { h: 25, s: 50, l: 93 },   // Sandalwood → terracotta
+    primary: { h: 14, s: 61, l: 48 },
     accent: { h: 43, s: 98, l: 53 },
   },
-  
-  // Bridge 2B: Gold dominance emerging (35%)
   {
-    position: 0.35,
-    background: { h: 35, s: 60, l: 94 },    // Golden glow
-    primary: { h: 43, s: 85, l: 52 },       // Richer gold
-    accent: { h: 30, s: 100, l: 60 },       // Saffron
+    position: 0.26,
+    background: { h: 14, s: 35, l: 92 },   // Full soft terracotta
+    primary: { h: 14, s: 65, l: 46 },
+    accent: { h: 43, s: 98, l: 53 },
   },
-  
+
   // ═══════════════════════════════════════════════════════════════
-  // SECTION 3: VALUES - Turmeric Gold
+  // SECTION 4: HOW WE BUILD — Turmeric Gold
   // ═══════════════════════════════════════════════════════════════
   {
-    position: 0.40,
-    background: { h: 43, s: 50, l: 95 },    // Golden cream
-    primary: { h: 43, s: 98, l: 53 },       // Full gold
-    accent: { h: 14, s: 61, l: 48 },        // Terracotta accent
+    position: 0.30,
+    background: { h: 28, s: 55, l: 94 },   // Terracotta → gold
+    primary: { h: 30, s: 75, l: 50 },
+    accent: { h: 43, s: 98, l: 53 },
   },
-  
-  // Bridge 3A: Cooling toward peacock (50%)
   {
-    position: 0.50,
-    background: { h: 80, s: 45, l: 93 },    // Gold → teal
-    primary: { h: 120, s: 70, l: 45 },      // Transitioning
-    accent: { h: 183, s: 80, l: 30 },       // Peacock emerging
+    position: 0.36,
+    background: { h: 43, s: 55, l: 95 },   // Full golden cream
+    primary: { h: 43, s: 98, l: 53 },
+    accent: { h: 14, s: 61, l: 48 },
   },
-  
-  // Bridge 3B: Peacock dominance (55%)
-  {
-    position: 0.55,
-    background: { h: 150, s: 40, l: 90 },   // Aqua tint
-    primary: { h: 183, s: 90, l: 28 },      // Deep peacock
-    accent: { h: 43, s: 98, l: 53 },        // Gold accent
-  },
-  
+
   // ═══════════════════════════════════════════════════════════════
-  // SECTION 4: ENGINE - Peacock Blue-Green
+  // SECTION 5: AI PHILOSOPHY — Peacock Blue
   // ═══════════════════════════════════════════════════════════════
   {
-    position: 0.60,
-    background: { h: 183, s: 30, l: 88 },   // Soft peacock
-    primary: { h: 183, s: 100, l: 22 },     // Full peacock
-    accent: { h: 43, s: 98, l: 53 },        // Gold accent
+    position: 0.41,
+    background: { h: 100, s: 45, l: 93 },  // Gold → peacock
+    primary: { h: 150, s: 80, l: 35 },
+    accent: { h: 183, s: 80, l: 30 },
   },
-  
-  // Bridge 4A: Deepening toward maroon (70%)
+  {
+    position: 0.47,
+    background: { h: 183, s: 30, l: 89 },  // Soft peacock
+    primary: { h: 183, s: 100, l: 22 },
+    accent: { h: 43, s: 98, l: 53 },
+  },
+
+  // ═══════════════════════════════════════════════════════════════
+  // SECTION 6: PRODUCTS — Sandalwood (return to warm)
+  // ═══════════════════════════════════════════════════════════════
+  {
+    position: 0.52,
+    background: { h: 90, s: 40, l: 93 },   // Peacock → sandalwood
+    primary: { h: 14, s: 61, l: 48 },
+    accent: { h: 43, s: 98, l: 53 },
+  },
+  {
+    position: 0.57,
+    background: { h: 39, s: 70, l: 91 },   // Sandalwood warm
+    primary: { h: 14, s: 61, l: 48 },
+    accent: { h: 43, s: 95, l: 52 },
+  },
+
+  // ═══════════════════════════════════════════════════════════════
+  // SECTION 7: SCIENCE OF — Hard bg override (#1a1a2e)
+  // ScrollColorLerp transitions through this range neutrally;
+  // the section itself overrides with a hard background.
+  // ═══════════════════════════════════════════════════════════════
+  {
+    position: 0.62,
+    background: { h: 39, s: 60, l: 92 },
+    primary: { h: 14, s: 61, l: 48 },
+    accent: { h: 43, s: 98, l: 53 },
+  },
+
+  // ═══════════════════════════════════════════════════════════════
+  // SECTION 8: PRODUCT PHILOSOPHY — Warm Ivory (return)
+  // ═══════════════════════════════════════════════════════════════
+  {
+    position: 0.66,
+    background: { h: 55, s: 85, l: 95 },
+    primary: { h: 14, s: 61, l: 48 },
+    accent: { h: 43, s: 98, l: 53 },
+  },
   {
     position: 0.70,
-    background: { h: 220, s: 35, l: 85 },   // Peacock → purple
-    primary: { h: 300, s: 80, l: 35 },      // Purple transition
-    accent: { h: 345, s: 90, l: 30 },       // Maroon emerging
+    background: { h: 60, s: 100, l: 97 },  // Full ivory
+    primary: { h: 14, s: 61, l: 48 },
+    accent: { h: 43, s: 98, l: 53 },
   },
-  
-  // Bridge 4B: Maroon dominance (80%)
-  {
-    position: 0.80,
-    background: { h: 330, s: 50, l: 88 },   // Rose tint
-    primary: { h: 345, s: 100, l: 25 },     // Deep maroon
-    accent: { h: 14, s: 61, l: 48 },        // Terracotta accent
-  },
-  
+
   // ═══════════════════════════════════════════════════════════════
-  // SECTION 5: CONTACT - Deep Maroon (Secondary Color)
+  // SECTION 9: BUILD WITH US — Saffron / Gold
   // ═══════════════════════════════════════════════════════════════
   {
-    position: 0.90,
-    background: { h: 345, s: 40, l: 90 },   // Soft maroon
-    primary: { h: 345, s: 100, l: 25 },     // Full maroon
-    accent: { h: 43, s: 98, l: 53 },        // Gold accent
+    position: 0.74,
+    background: { h: 50, s: 80, l: 95 },   // Ivory → gold
+    primary: { h: 43, s: 90, l: 50 },
+    accent: { h: 30, s: 100, l: 60 },
   },
-  
-  // Final: Footer fade
+  {
+    position: 0.79,
+    background: { h: 43, s: 55, l: 95 },   // Gold cream
+    primary: { h: 43, s: 98, l: 53 },
+    accent: { h: 30, s: 100, l: 60 },
+  },
+
+  // ═══════════════════════════════════════════════════════════════
+  // SECTION 10: INVESTOR — Terracotta
+  // ═══════════════════════════════════════════════════════════════
+  {
+    position: 0.83,
+    background: { h: 20, s: 45, l: 93 },   // Gold → terracotta
+    primary: { h: 14, s: 61, l: 48 },
+    accent: { h: 43, s: 98, l: 53 },
+  },
+  {
+    position: 0.87,
+    background: { h: 14, s: 32, l: 92 },   // Soft terracotta
+    primary: { h: 14, s: 61, l: 48 },
+    accent: { h: 43, s: 98, l: 53 },
+  },
+
+  // ═══════════════════════════════════════════════════════════════
+  // SECTION 11: LONG-TERM VISION + FOOTER — Deep Maroon
+  // ═══════════════════════════════════════════════════════════════
+  {
+    position: 0.91,
+    background: { h: 330, s: 45, l: 88 },  // Terracotta → maroon
+    primary: { h: 345, s: 100, l: 25 },
+    accent: { h: 43, s: 98, l: 53 },
+  },
+  {
+    position: 0.96,
+    background: { h: 345, s: 38, l: 91 },  // Soft maroon
+    primary: { h: 345, s: 100, l: 25 },
+    accent: { h: 43, s: 98, l: 53 },
+  },
   {
     position: 1.0,
-    background: { h: 345, s: 35, l: 92 },   // Lighter maroon
+    background: { h: 345, s: 35, l: 92 },
     primary: { h: 345, s: 100, l: 25 },
     accent: { h: 43, s: 98, l: 53 },
   },

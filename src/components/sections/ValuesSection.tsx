@@ -3,39 +3,39 @@ import { ScrambleText } from '@/components/ScrambleText';
 
 const VALUES = [
   {
-    id: 'trust',
-    title: 'TRUST',
-    description: 'Honesty & integrity in all practices, fostering trust from users & collaborators.',
-    icon: '◈', // Could replace with SVGs later
+    id: 'useful',
+    title: 'USEFUL IN PRACTICE',
+    description: 'Real environments, not demos. Every system is built for the conditions people actually work in.',
+    icon: '◈',
   },
   {
-    id: 'excellence',
-    title: 'EXCELLENCE',
-    description: 'World-class, result-oriented content with cutting-edge product performance.',
+    id: 'science',
+    title: 'GROUNDED IN SCIENCE',
+    description: 'Every decision has a reason. We base inferences on research and learn from evidence.',
     icon: '❖',
   },
   {
-    id: 'creedless',
-    title: 'CREEDLESS',
-    description: 'Ensure equity in access, distribution, cost, internal affairs & promote inclusivity.',
+    id: 'design',
+    title: 'THOUGHTFUL IN DESIGN',
+    description: 'Clarity before aesthetics. Good design removes friction before users encounter it.',
     icon: '◎',
   },
   {
-    id: 'empowerment',
-    title: 'EMPOWERMENT',
-    description: 'Focus on the student, empower teachers & emphasise on diffusion of knowledge.',
+    id: 'lasting',
+    title: 'BUILT TO LAST',
+    description: 'Durable systems, not fast features. We invest in foundations, not shortcuts.',
     icon: '△',
   },
   {
-    id: 'evidence',
-    title: 'EVIDENCE-BASED',
-    description: 'Base inferences on science & research; learn from industry best practices.',
+    id: 'depth',
+    title: 'DEPTH OVER NOISE',
+    description: 'We choose less, and do it well. Quality of understanding over volume of output.',
     icon: '□',
   },
   {
-    id: 'unity',
-    title: 'ART IS UNITY',
-    description: 'Build community capabilities to contribute and drive positive change.',
+    id: 'meaning',
+    title: 'MEANING OVER VOLUME',
+    description: 'Impact measured in outcomes, not outputs. We prioritise what actually moves people forward.',
     icon: '○',
   },
 ];
@@ -62,7 +62,7 @@ export const ValuesSection = () => {
           </motion.div>
 
           <ScrambleText
-            text="CORE VALUES"
+            text="OUR PHILOSOPHY"
             as="h2"
             className="text-5xl md:text-6xl font-bold tracking-tight mb-8 text-vetkai-terracotta font-tamil"
             delay={200}
@@ -76,8 +76,8 @@ export const ValuesSection = () => {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-lg text-foreground/80 leading-relaxed font-serif"
           >
-            To augment the current delivery systems of education, healthcare & practice in India 
-            and positively impact global outcomes—through evidence, knowledge, awareness & application.
+            What we choose to build — and how we choose to build it.
+            Six principles that govern every decision we make.
           </motion.p>
         </div>
 
@@ -117,6 +117,22 @@ export const ValuesSection = () => {
             </motion.article>
           ))}
         </div>
+
+        {/* Closing quote */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+          className="mt-16 text-center"
+        >
+          <p className="text-xl md:text-2xl font-serif text-foreground/60 italic">
+            "We prioritise depth over noise,
+          </p>
+          <p className="text-xl md:text-2xl font-serif text-foreground/80 italic">
+            and meaning over volume."
+          </p>
+        </motion.div>
       </div>
     </section>
   );

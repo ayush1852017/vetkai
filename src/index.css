@@ -122,12 +122,15 @@
 @layer base {
   * {
     @apply border-border;
-    /* Ultra-smooth transitions for imperceptible color changes during scroll */
-    transition: color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-      background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-      border-color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-      fill 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-      stroke 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Hover transitions for interactive elements — ScrollColorLerp drives
+     background/foreground changes at 60fps via JS so no CSS transition
+     is needed there (adding one would cause color-chasing flicker). */
+  a, button, [role="button"] {
+    transition-property: color, opacity, background-color, border-color, transform, box-shadow;
+    transition-duration: 150ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   html {
@@ -164,7 +167,7 @@
     background-color: hsl(var(--vetkai-ivory));
     border: 1px solid hsl(var(--vetkai-saffron));
     box-shadow: 4px 4px 0 hsl(var(--vetkai-terracotta));
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
   .tamil-card:hover {
