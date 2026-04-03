@@ -52,6 +52,47 @@ export const AIPhilosophySection = () => {
           </defs>
           <rect width="100%" height="100%" fill="url(#aiPhilosophyGrid)" />
         </svg>
+        {/* Synapse node ring — static clinical pathway markers */}
+        <svg
+          viewBox="0 0 1000 560"
+          preserveAspectRatio="xMidYMid slice"
+          className="absolute inset-0 w-full h-full"
+          fill="none"
+          aria-hidden="true"
+        >
+          {[
+            { label: 'INPUT',    angle: 90  },
+            { label: 'ANALYZE',  angle: 162 },
+            { label: 'VALIDATE', angle: 234 },
+            { label: 'OUTPUT',   angle: 306 },
+            { label: 'VERIFY',   angle: 18  },
+          ].map(({ label, angle }) => {
+            const rad  = ((angle - 90) * Math.PI) / 180;
+            const r    = 245;
+            const cx   = 500;
+            const cy   = 280;
+            const nx   = cx + r * Math.cos(rad);
+            const ny   = cy + r * Math.sin(rad);
+            const lx   = cx + (r + 22) * Math.cos(rad);
+            const ly   = cy + (r + 22) * Math.sin(rad);
+            const sx   = cx + (r - 18) * Math.cos(rad);
+            const sy   = cy + (r - 18) * Math.sin(rad);
+            return (
+              <g key={label} opacity="0.35">
+                <line x1={sx} y1={sy} x2={nx} y2={ny} stroke="#F5A623" strokeWidth="0.75" />
+                <circle cx={nx} cy={ny} r="3.5" fill="#F5A623" />
+                <text
+                  x={lx} y={ly + 4}
+                  textAnchor="middle"
+                  fontSize="9"
+                  fontFamily="Space Grotesk, monospace"
+                  letterSpacing="1.5"
+                  fill="#F5A623"
+                >{label}</text>
+              </g>
+            );
+          })}
+        </svg>
       </div>
 
       <div className="vetkai-container relative z-10">

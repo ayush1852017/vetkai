@@ -50,22 +50,10 @@ export const Navigation = () => {
         {/* Status Indicator — vital-sign style */}
         <div className="flex items-center gap-2 border border-vetkai-gold/30 rounded-full px-3 py-1 bg-background">
           <span className="w-1.5 h-1.5 bg-vetkai-peacock rounded-full animate-pulse flex-shrink-0" />
-          {/* EKG blip — single heartbeat drawn at ~60% opacity */}
-          {/* <svg
-            viewBox="0 0 52 14"
-            className="w-[52px] h-[14px] text-vetkai-peacock flex-shrink-0"
-            fill="none"
-            aria-hidden
-          >
-            <polyline
-              points="0,7 18,7 21,4 24,7 27,1 30,13 33,7 52,7"
-              stroke="currentColor"
-              strokeWidth="1.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              opacity="0.55"
-            />
-          </svg> */}
+          {/* EKG blip — single heartbeat at ~55% opacity */}
+          <svg viewBox="0 0 52 14" width="52" height="14" className="text-vetkai-peacock flex-shrink-0" fill="none" aria-hidden="true">
+            <polyline points="0,7 18,7 21,4 24,7 27,1 30,13 33,7 52,7" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" opacity="0.55" />
+          </svg>
           <span className="text-[10px] tracking-widest uppercase text-foreground">India · Building</span>
         </div>
       </nav>

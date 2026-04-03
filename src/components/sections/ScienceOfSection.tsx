@@ -40,7 +40,7 @@ export const ScienceOfSection = () => {
           />
         ))}
 
-        {/* Grid */}
+        {/* Square grid */}
         <svg className="absolute inset-0 w-full h-full opacity-[0.06]">
           <defs>
             <pattern id="scienceGrid" width="60" height="60" patternUnits="userSpaceOnUse">
@@ -48,6 +48,17 @@ export const ScienceOfSection = () => {
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#scienceGrid)" />
+        </svg>
+        {/* Hexagonal cell overlay — molecular/cellular motif */}
+        <svg className="absolute inset-0 w-full h-full opacity-[0.045]">
+          <defs>
+            <pattern id="scienceHex" x="0" y="0" width="26" height="45" patternUnits="userSpaceOnUse">
+              <polygon points="13,0 26,7.5 26,22.5 13,30 0,22.5 0,7.5" fill="none" stroke="#FDB813" strokeWidth="0.6" />
+              <polygon points="0,22.5 13,30 13,45 0,52.5 -13,45 -13,30" fill="none" stroke="#FDB813" strokeWidth="0.6" />
+              <polygon points="26,22.5 39,30 39,45 26,52.5 13,45 13,30" fill="none" stroke="#FDB813" strokeWidth="0.6" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#scienceHex)" />
         </svg>
       </div>
 
@@ -71,6 +82,7 @@ export const ScienceOfSection = () => {
                 className="text-3xl md:text-4xl lg:text-5xl font-bold"
                 delay={200}
                 duration={35}
+                color="#a37575"
               />
             </motion.div>
 

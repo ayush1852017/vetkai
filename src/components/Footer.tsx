@@ -82,8 +82,16 @@ export const Footer = () => {
         </div>
       </div>
 
-      {/* Background Texture */}
+      {/* Background Texture — gold dot grid */}
       <div className="absolute inset-0 bg-[radial-gradient(#FDB813_1px,transparent_1px)] [background-size:20px_20px] opacity-[0.03] pointer-events-none" />
+      {/* Sparse cross motifs — clinical + Kolam reference */}
+      <div
+        className="absolute inset-0 opacity-[0.025] pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 38v24M38 50h24' stroke='%23C84630' strokeWidth='1.2' strokeLinecap='round'/%3E%3C/svg%3E")`,
+          backgroundSize: '100px 100px',
+        }}
+      />
     </footer>
   );
 };

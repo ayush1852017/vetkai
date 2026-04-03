@@ -3,6 +3,8 @@ import { useEffect, useState, useRef } from 'react';
 interface ScrambleTextProps {
   text: string;
   className?: string;
+  style?: React.CSSProperties;
+  color?: string;
   as?: 'h1' | 'h2' | 'h3' | 'p' | 'span';
   delay?: number;
   duration?: number;
@@ -16,6 +18,8 @@ const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 export const ScrambleText = ({
   text,
   className = '',
+  style,
+  color,
   as: Component = 'span',
   delay = 0,
   duration = 50,
@@ -91,7 +95,7 @@ export const ScrambleText = ({
   };
 
   return (
-    <Component ref={elementRef} className={className}>
+    <Component ref={elementRef as any} className={className} style={{ color, ...style }}>
       {displayText.map((char, index) => (
         // inline-block gives consistent glyph rendering across fonts and
         // ensures opacity changes don't affect surrounding inline flow.

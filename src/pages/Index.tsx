@@ -14,6 +14,22 @@ import { ConnectSection } from '@/components/sections/ConnectSection';
 import { LongTermVisionSection } from '@/components/sections/LongTermVisionSection';
 import { Footer } from '@/components/Footer';
 
+/** Thin full-width heartbeat divider — one PQRST blip centred in the line */
+const EKGDivider = () => (
+  <div className="relative overflow-hidden pointer-events-none" aria-hidden="true">
+    <svg viewBox="0 0 1440 20" className="w-full h-5" preserveAspectRatio="none" fill="none">
+      <polyline
+        points="0,10 675,10 685,7 690,10 696,2 703,18 709,10 720,10 1440,10"
+        stroke="hsl(var(--vetkai-terracotta))"
+        strokeWidth="1"
+        opacity="0.18"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  </div>
+);
+
 const Index = () => {
   return (
     <div className="relative min-h-screen scroll-lerp">
@@ -39,6 +55,8 @@ const Index = () => {
           <BeliefSection />
         </div>
 
+        <EKGDivider />
+
         <div id="how-we-build">
           <HowWeBuildSection />
         </div>
@@ -54,6 +72,8 @@ const Index = () => {
         <div id="science">
           <ScienceOfSection />
         </div>
+
+        <EKGDivider />
 
         <div id="philosophy">
           <ValuesSection />
