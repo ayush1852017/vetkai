@@ -141,7 +141,7 @@ const Careers = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
           >
             <a
-              href="mailto:hello@vetkai.com"
+              href="mailto:developer@vetkai.in"
               className="inline-flex items-center gap-3 px-8 py-4 bg-vetkai-terracotta text-white font-semibold tracking-wide hover:bg-vetkai-terracotta/90 transition-colors group"
             >
               <span>Reach out</span>

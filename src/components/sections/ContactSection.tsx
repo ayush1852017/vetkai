@@ -73,8 +73,8 @@ export const ContactSection = () => {
                   <span className="w-12 h-px bg-vetkai-gold" />
                   <span className="text-sm font-bold tracking-widest uppercase">Contact Us</span>
                </div>
-               <a href="mailto:hello@vetkai.com" className="block text-2xl font-medium text-vetkai-terracotta hover:text-vetkai-gold transition-colors">
-                 hello@vetkai.com
+               <a href="mailto:developer@vetkai.in" className="block text-2xl font-medium text-vetkai-terracotta hover:text-vetkai-gold transition-colors">
+                 developer@vetkai.in
                </a>
             </div>
           </motion.div>
