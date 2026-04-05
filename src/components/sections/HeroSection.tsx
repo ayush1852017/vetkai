@@ -4,7 +4,7 @@ import { KolamPattern } from '@/components/KolamPattern';
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-20">
       {/* Background Mandala */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <KolamPattern className="opacity-10 text-vetkai-terracotta" />
@@ -83,9 +83,9 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.4, duration: 0.8 }}
-          className="flex flex-wrap justify-center gap-6"
+          className="flex flex-wrap justify-center items-center gap-6"
         >
-          {['Students', 'Teachers', 'Practitioners', 'Patients'].map((focus, index) => (
+          {['Students', 'Teachers'].map((focus, index) => (
             <motion.div
               key={focus}
               initial={{ opacity: 0, scale: 0.8 }}
@@ -95,7 +95,39 @@ export const HeroSection = () => {
             >
               <div className="absolute inset-0 bg-vetkai-terracotta/10 rotate-3 group-hover:rotate-6 transition-transform" />
               <div className="relative px-6 py-3 border border-vetkai-gold bg-background text-foreground font-serif font-medium text-lg hover:bg-vetkai-gold hover:text-white transition-colors cursor-default">
-                  {focus}
+                {focus}
+              </div>
+            </motion.div>
+          ))}
+
+          {/* Scroll Indicator — centered between Teachers and Practitioners */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2, duration: 0.6 }}
+            className="flex flex-col items-center gap-1"
+          >
+            <div className="w-1.5 h-1.5 rounded-full bg-vetkai-terracotta" />
+            <motion.div
+              animate={{ height: [0, 40, 0], opacity: [0, 1, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+              className="w-px bg-vetkai-terracotta"
+            />
+            <div className="w-1.5 h-1.5 rounded-full bg-vetkai-terracotta" />
+            <span className="text-[10px] tracking-[0.3em] uppercase text-foreground font-medium mt-1">Scroll</span>
+          </motion.div>
+
+          {['Practitioners', 'Patients'].map((focus, index) => (
+            <motion.div
+              key={focus}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 1.8 + index * 0.1, duration: 0.4 }}
+              className="group relative"
+            >
+              <div className="absolute inset-0 bg-vetkai-terracotta/10 rotate-3 group-hover:rotate-6 transition-transform" />
+              <div className="relative px-6 py-3 border border-vetkai-gold bg-background text-foreground font-serif font-medium text-lg hover:bg-vetkai-gold hover:text-white transition-colors cursor-default">
+                {focus}
               </div>
             </motion.div>
           ))}
@@ -111,22 +143,6 @@ export const HeroSection = () => {
 
       </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 0.6 }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
-      >
-         <div className="w-1.5 h-1.5 rounded-full bg-vetkai-terracotta mb-2" />
-         <motion.div
-          animate={{ height: [0, 40, 0], opacity: [0, 1, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          className="w-px bg-vetkai-terracotta"
-        />
-        <div className="w-1.5 h-1.5 rounded-full bg-vetkai-terracotta mt-2" />
-        <span className="text-[10px] tracking-[0.3em] uppercase text-foreground font-medium">Scroll</span>
-      </motion.div>
     </section>
   );
 };
